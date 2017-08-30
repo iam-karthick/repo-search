@@ -1,0 +1,27 @@
+<div class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Githubsearch.com</a>
+        <form class="nav pull-right">
+                <input class="text" type="text" name="search" value="" [(ngModel)]="search" placeholder="search here">
+                <button class="btn btn-info btn-sm" (click)="onClick()">search</button>
+        </form>
+</div>
+<div class="row" *ngIf="user">
+        <div class="col-md-4">
+            <div >
+                <img src={{user.avatar_url}} alt="" class="img-thumbnail"/>
+            </div>
+            <h6>followers:<span class="badge badge-primary">{{ user.followers || "N/A" }}</span>  
+            following:<span class="badge badge-primary">{{ user.following || "N/A" }}</span> </h6>                
+        </div>
+        <div class="col-md-8">
+            <h3>
+                 {{user.login}}
+            </h3>
+            <p>name:{{user.name || "N/A" }}</p>            
+            <p>repositories:{{user.public_repos || "N/A" }}</p>
+            <p>id:{{user.id || "N/A" }}</p>
+            <p>location:{{user.location || "N/A" }}</p>
+            <button class="btn btn-info" type="button" (click)="onClickRepo()">repositories>>></button>
+            <p>{{user.repos_url}}</p>
+        </div>   
+</div>   
